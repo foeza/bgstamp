@@ -76,8 +76,8 @@ class DashboardController extends Controller {
 
     //shortcut for checking login for users at login page
     function index() {
-        $uname  = $_POST['username'];
-        $pass   = $_POST['password'];
+        $uname  = isset($_POST['username']) ? $_POST['username'] : '';
+        $pass   = isset($_POST['password']) ? $_POST['password'] : '';
 
         if (isset($uname) && isset($pass) && $uname != "" && $pass != "") {
             $user_check = $this->User->find('first', array(
